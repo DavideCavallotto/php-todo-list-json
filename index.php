@@ -20,7 +20,8 @@ $title = 'To Do List';
     <div id="app">
         <div class="container">
             <h1 class="title"><?php echo $title ?></h1>            
-            <input type="text" placeholder="Aggiungi argomento">
+            <input type="text" v-model="new_argument_user" placeholder="Aggiungi argomento">
+            <input @click='addTodo' type="submit" value="Aggiungi">
         </div>
         <div class="container list">
             <h3 class="title">I miei argomenti</h3>
@@ -32,6 +33,7 @@ $title = 'To Do List';
         </div>
 
     </div>
+    
     <script src="./js/script.js"></script>
 </body>
 </html>
