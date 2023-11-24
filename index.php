@@ -12,8 +12,7 @@ $title = 'To Do List';
     <title><?php echo $title ?></title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>      
-    <link rel="stylesheet" href="./css/style.css"> 
-    
+    <link rel="stylesheet" href="./css/style.css">     
 
 </head>
 
@@ -21,18 +20,18 @@ $title = 'To Do List';
     <div id="app">
         <div class="container">
             <h1 class="title"><?php echo $title ?></h1>            
-            <input type="text" placeholder="Aggiungi gli argomenti">
+            <input type="text" placeholder="Aggiungi argomento">
         </div>
         <div class="container list">
             <h3 class="title">I miei argomenti</h3>
             <ul>
-                <li>php</li>
+                <li v-for="(argument, i) in todoArguments" key="i">{{ argument }}</li>
             </ul>
 
 
         </div>
 
     </div>
-    
+    <script src="./js/script.js"></script>
 </body>
 </html>
