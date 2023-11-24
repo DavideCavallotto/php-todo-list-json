@@ -8,7 +8,11 @@ createApp({
     },
     methods: {
         fetchData() {
-            axios.get('./server.php')
+            axios.get('./api_server.php').then(res=> {
+                console.log(res.data)
+                this.todoArguments = res.data
+            })
+            
         }
 
     },

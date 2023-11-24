@@ -25,7 +25,7 @@ $title = 'To Do List';
         <div class="container list">
             <h3 class="title">I miei argomenti</h3>
             <ul>
-                <li v-for="(argument, i) in todoArguments" key="i">{{ argument }}</li>
+                <li v-for="(argument, i) in todoArguments" key="i">{{ argument.text }}</li>
             </ul>
 
 
