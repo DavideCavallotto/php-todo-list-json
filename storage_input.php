@@ -4,30 +4,33 @@
 
 $new_argument = $_POST['argument'] ?? '';
 
+$new_argument_input = [
+    "text" => $new_argument,
+    "done" => false
+];
+
+var_dump($new_argument);
 
 
-// if($new_argument) {
-    
-//     file_put_contents('./list_arguments_todo.json',$list_from_json );
-    
-// } else {
-    
-// }
+//faccio richiesta al file list_arguments_todo per richiedere l'array di oggetti che verrà restituito come stringa
+$list_from_json = file_get_contents('./list_arguments_todo.json');
 
+//tramite json_decode traformo il file json sotto forma di stringa in variabile php
+$arguments = json_decode($list_from_json, true);
 
-// //faccio richiesta al file list_arguments_todo per richiedere l'array di oggetti che verrà restituito come stringa
-// $list_from_json = file_get_contents('./list_arguments_todo.json');
+// pusho il nuovo argomento nell'array che contiene i diversi argomenti
+$arguments[] = $new_argument_input;
 
-// //tramite json_decode traformo il file json sotto forma di stringa in variabile php
-// $arguments = json_decode($list_from_json, true);
+$response['arguments'] = $arguments;
 
-// // pusho il nuovo argomento nell'array che contiene i diversi argomenti
-// $arguments[] = $new_argument;
+// codifico l'array di formato json in array formato php
 
-// // codifico l'array di formato json in array formato php
+$list_from_json = json_encode($arguments);
 
-// $list_from_json = json_encode($arguments);
+// salvo il nuovo argomento
 
-// // salvo il nuovo argomento
+file_put_contents('./list_arguments_todo.json',$list_from_json );
 
-// file_put_contents('./list_arguments_todo.json',$list_from_json );
+header('Content-Type: application/json');
+
+echo json_encode($response);
