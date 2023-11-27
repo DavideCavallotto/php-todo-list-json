@@ -16,23 +16,24 @@ createApp({
             
         },
         addTodo() {
-            console.log(this.new_argument_user)
-            
+            console.log(this.new_argument_user)            
+            if (this.new_argument_user !== '') {
+                const data = {   
+                          
+                 argument: this.new_argument_user,       
+                 }
+     
+             axios.post('storage_input.php', data, {
+                 headers: { 'Content-Type': 'multipart/form-data'}
+     
+             }).then(res => {
+                 this.todoArguments = res.data.arguments
+                 this.new_argument_user = ''
+             })
 
-           const data = {   
-                     
-            argument: this.new_argument_user,
-           
-
-            
-        }
-        
-        axios.post('storage_input.php', data, {
-            headers: { 'Content-Type': 'multipart/form-data'}
-
-        })
+            }
     }
-    
+            
 },
 mounted () {
     
@@ -43,3 +44,5 @@ created () {
     }
 
 }).mount('#app')
+        
+    

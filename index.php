@@ -28,7 +28,7 @@ $title = 'To Do List';
             <ul>
                 <li v-for="(argument, i) in todoArguments" :key="i">{{ argument.text }}</li>
             </ul>
-
+            
 
         </div>
 
