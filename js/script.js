@@ -18,28 +18,60 @@ createApp({
         addTodo() {
             console.log(this.new_argument_user)            
             if (this.new_argument_user !== '') {
-                const data = {   
+
+                const data = { 
+                    argument: this.new_argument_user,      
                           
-                 argument: this.new_argument_user,       
-                 }
+                }
      
              axios.post('storage_input.php', data, {
-                 headers: { 'Content-Type': 'multipart/form-data'}
+                headers: { 'Content-Type': 'multipart/form-data'}
      
              }).then(res => {
-                 this.todoArguments = res.data.arguments
-                 this.new_argument_user = ''
+                this.todoArguments = res.data.arguments
+                this.new_argument_user = ''
              })
 
             }
-    }
+        },
+        removeTodo(index) {
             
-},
-mounted () {
+            const data = { 
+                i: index   
+                      
+            }
+
+            axios.post('remove_argument.php',data, {
+                headers: { 'Content-Type': 'multipart/form-data'}
+            }).then(res => {
+                this.todoArguments = res.data.arguments
+                
+             })
+        },
+        checkTodo(index) {  
+            console.log('ho cliccato')          
+            const data = { 
+                i: index   
+                      
+            }
+
+            axios.post('checked.php',data, {
+                headers: { 'Content-Type': 'multipart/form-data'}
+            })
+            .then(res => {
+                this.todoArguments = res.data.arguments
+                
+             })
+        }
+
     
-},
-created () {    
-    this.fetchData()
+            
+    },
+    mounted () {
+        
+    },
+    created () {    
+        this.fetchData()
 
     }
 

@@ -13,3 +13,30 @@
     margin-bottom: 20px;
 }
 
+.remove {
+    font-size: 7px;
+    font-weight: bold;
+    cursor: pointer; 
+    border: 1px solid gray;  
+    border-radius: 3px; 
+    padding: 0 2px;
+    background-color: gainsboro;
+}
+
+.remove:hover {
+    color: red;
+}
+
+.todo {
+   display: flex;
+   align-items: center;
+   gap: 20px;
+}
+
+.title-argument {
+    cursor: pointer;
+}
+
+.title-argument.done {
+    text-decoration: line-through;
+}

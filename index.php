@@ -20,13 +20,17 @@ $title = 'To Do List';
     <div id="app">
         <div class="container">
             <h1 class="title"><?php echo $title ?></h1>            
-            <input type="text" v-model="new_argument_user" placeholder="Aggiungi argomento">
+            <input @keyup.enter='addTodo' type="text" v-model="new_argument_user" placeholder="Aggiungi argomento">
             <input @click='addTodo' type="submit" value="Aggiungi">
         </div>
         <div class="container list">
             <h3 class="title">I miei argomenti</h3>
             <ul>
-                <li v-for="(argument, i) in todoArguments" :key="i">{{ argument.text }}</li>
+                <li @click='checkTodo(i)' class="todo" v-for="(argument, i) in todoArguments" :key="i">
+                    <div :class="{done: argument.done}" class="title-argument">{{ argument.text }}</div>
+                    <span class="remove" @click='removeTodo(i)'>&#10005;</span>
+
+                </li>
             </ul>
             
 
