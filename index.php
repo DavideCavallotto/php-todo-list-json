@@ -26,8 +26,8 @@ $title = 'To Do List';
         <div class="container list">
             <h3 class="title">I miei argomenti</h3>
             <ul>
-                <li @click='checkTodo(i)' class="todo" v-for="(argument, i) in todoArguments" :key="i">
-                    <div :class="{done: argument.done}" class="title-argument">{{ argument.text }}</div>
+                <li class="todo" v-for="(argument, i) in todoArguments" :key="i">
+                    <div @click='checkTodo(i)' :class="{done: argument.done}" class="title-argument">{{ argument.text }}</div>
                     <span class="remove" @click='removeTodo(i)'>&#10005;</span>
 
                 </li>
