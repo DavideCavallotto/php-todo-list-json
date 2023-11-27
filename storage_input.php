@@ -25,7 +25,7 @@ if ($new_argument) {
     // pusho il nuovo argomento nell'array che contiene i diversi argomenti
     $arguments[] = $new_argument_input;
 
-    $response['arguments'] = $arguments;    
+    $response['results'] = $arguments;    
     
     // $response['arguments'] = $arguments;
     

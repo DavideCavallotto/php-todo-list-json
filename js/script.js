@@ -28,7 +28,7 @@ createApp({
                 headers: { 'Content-Type': 'multipart/form-data'}
      
              }).then(res => {
-                this.todoArguments = res.data.arguments
+                this.todoArguments = res.data.results
                 this.new_argument_user = ''
              })
 
@@ -44,7 +44,7 @@ createApp({
             axios.post('remove_argument.php',data, {
                 headers: { 'Content-Type': 'multipart/form-data'}
             }).then(res => {
-                this.todoArguments = res.data.arguments
+                this.todoArguments = res.data.results
                 
              })
         },
@@ -59,7 +59,7 @@ createApp({
                 headers: { 'Content-Type': 'multipart/form-data'}
             })
             .then(res => {
-                this.todoArguments = res.data.arguments
+                this.todoArguments = res.data.results
                 
              })
         }

@@ -16,7 +16,7 @@ if ($checked_index || $checked_index === 0) {
     
     $arguments[$checked_index]['done'] = !$arguments[$checked_index]['done'];
 
-    $response['arguments'] = $arguments;  
+    $response['results'] = $arguments;  
 
     $list_from_json = json_encode($arguments);     
 

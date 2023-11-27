@@ -13,7 +13,7 @@ if($delete_index || $delete_index === 0) {
 
     array_splice($arguments,$delete_index,1);
 
-    $response['arguments'] = $arguments;  
+    $response['results'] = $arguments;  
 
     $list_from_json = json_encode($arguments);
 
